@@ -1,4 +1,4 @@
-package es.edu.alten.practica0;
+package es.edu.alten.practica0.modelo;
 
 import java.util.List;
 
@@ -45,16 +45,12 @@ public abstract class PiedraPapelTijeraFactory {
 	
 	
 	//Métodos de negocio
-	public abstract boolean isMe(int pNum) {
-		return null;
-	}
+	public abstract boolean isMe(int pNum);
 	
-	public abstract int comparar(PiedraPapelTijeraFactory piedraPapelTijera) {} 
-	
+	public abstract int comparar(PiedraPapelTijeraFactory piedraPapelTijera); 
 	
 	public static PiedraPapelTijeraFactory getInstance(int numero) {
-		//El núcleo del factory
-		
+		//El núcleo del factory		
 		return null;
 		
 	}
