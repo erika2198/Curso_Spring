@@ -6,8 +6,8 @@ public abstract class PiedraPapelTijeraFactory {
 
 	//Constantes
 	public final static int PIEDRA = 1;
-	public final static int PAPEL = 1;
-	public final static int TIJERA = 1;
+	public final static int PAPEL = 2;
+	public final static int TIJERA = 3;
 	
 	protected String descripcionResultado;
 	private static List<PiedraPapelTijeraFactory> elementos;
@@ -46,7 +46,7 @@ public abstract class PiedraPapelTijeraFactory {
 	
 	//Métodos de negocio
 	public abstract boolean isMe(int pNum) {
-		
+		return null;
 	}
 	
 	public abstract int comparar(PiedraPapelTijeraFactory piedraPapelTijera) {} 
