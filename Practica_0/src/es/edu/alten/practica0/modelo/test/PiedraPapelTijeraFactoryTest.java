@@ -6,17 +6,21 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import es.edu.alten.practica0.modelo.Lagarto;
 import es.edu.alten.practica0.modelo.Papel;
 import es.edu.alten.practica0.modelo.Piedra;
 import es.edu.alten.practica0.modelo.PiedraPapelTijeraFactory;
+import es.edu.alten.practica0.modelo.Spock;
 import es.edu.alten.practica0.modelo.Tijera;
 
 class PiedraPapelTijeraFactoryTest {
-
+	
 	// 1- lote pruebas
 	PiedraPapelTijeraFactory piedra;
 	PiedraPapelTijeraFactory papel;
 	PiedraPapelTijeraFactory tijera;
+	PiedraPapelTijeraFactory lagarto;
+	PiedraPapelTijeraFactory spock;
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -25,6 +29,8 @@ class PiedraPapelTijeraFactoryTest {
 		piedra = new Piedra();
 		papel = new Papel();
 		tijera = new Tijera();
+		lagarto = new Lagarto();
+		spock = new Spock();
 	}
 
 	@AfterEach
@@ -34,6 +40,9 @@ class PiedraPapelTijeraFactoryTest {
 		piedra = null;
 		papel = null;
 		tijera = null;
+		lagarto = null;
+		spock = null;
+		
 	}
 
 	@Test
@@ -122,4 +131,138 @@ class PiedraPapelTijeraFactoryTest {
 		assertEquals("tijera empata con tijera", tijera.getDescripcionResultado().toLowerCase());
 
 	}
+	
+	//TEST con Lagarto y Spock
+	@Test
+	void testCompararPiedraGanaALagarto() {
+		// TODO para mis queridos alumnos testCompararTijeraPierdeConPiedra
+		assertEquals(1, piedra.comparar(lagarto));
+		assertEquals("piedra aplasta a lagarto", piedra.getDescripcionResultado().toLowerCase());
+	}
+	
+	@Test
+	void testCompararPiedraPierdeConSpock() {
+		// TODO para mis queridos alumnos testCompararTijeraPierdeConPiedra
+		assertEquals(-1, piedra.comparar(spock));
+		assertEquals("piedra es evaporizada por spock", piedra.getDescripcionResultado().toLowerCase());
+	}
+	
+	@Test
+	void testCompararPapelGanaASpock() {
+		// TODO para mis queridos alumnos testCompararTijeraPierdeConPiedra
+		assertEquals(1, papel.comparar(spock));
+		assertEquals("papel desautoriza a spock", papel.getDescripcionResultado().toLowerCase());
+	}
+	
+	@Test
+	void testCompararPapelPierdeConLagarto() {
+		// TODO para mis queridos alumnos testCompararTijeraPierdeConPiedra
+		assertEquals(-1, papel.comparar(lagarto));
+		assertEquals("papel es devorado por lagarto", papel.getDescripcionResultado().toLowerCase());
+	}
+	
+	@Test
+	void testCompararTijeraGanaALagarto() {
+		// TODO para mis queridos alumnos testCompararTijeraPierdeConPiedra
+		assertEquals(1, tijera.comparar(lagarto));
+		assertEquals("tijera decapita a lagarto", tijera.getDescripcionResultado().toLowerCase());
+	}
+	
+	@Test
+	void testCompararPapelPierdeConSpock() {
+		// TODO para mis queridos alumnos testCompararTijeraPierdeConPiedra
+		assertEquals(-1, tijera.comparar(spock));
+		assertEquals("tijera es rota por spock", tijera.getDescripcionResultado().toLowerCase());
+	}
+	
+	
+	//Lagarto y Spock
+	
+	@Test
+	void testCompararLagartoGanaASpock() {
+		// TODO para mis queridos alumnos testCompararTijeraPierdeConPiedra
+		assertEquals(1, lagarto.comparar(spock));
+		assertEquals("lagarto ganó a spock", lagarto.getDescripcionResultado().toLowerCase());
+	}
+	
+	@Test
+	void testCompararLagartoGanaAPapel() {
+		// TODO para mis queridos alumnos testCompararTijeraPierdeConPiedra
+		assertEquals(1, lagarto.comparar(papel));
+		assertEquals("lagarto devora a papel", lagarto.getDescripcionResultado().toLowerCase());
+	}
+	
+	@Test
+	void testCompararLagartoPierdeConPiedra() {
+		// TODO para mis queridos alumnos testCompararTijeraPierdeConPiedra
+		assertEquals(-1, lagarto.comparar(piedra));
+		assertEquals("lagarto perdió con piedra", lagarto.getDescripcionResultado().toLowerCase());
+	}
+	
+	@Test
+	void testCompararLagartoPierdeConTijera() {
+		// TODO para mis queridos alumnos testCompararTijeraPierdeConPiedra
+		assertEquals(-1, lagarto.comparar(tijera));
+		assertEquals("lagarto es decapitado por tijera", lagarto.getDescripcionResultado().toLowerCase());
+	}
+	
+	@Test
+	void testCompararLagartoEmpataConLagarto() {
+		// TODO para mis queridos alumnos testCompararTijeraEmpataConTiera
+		assertEquals(0, lagarto.comparar(lagarto));
+		assertEquals("lagarto empata con lagarto", lagarto.getDescripcionResultado().toLowerCase());
+	}
+	
+	@Test
+	void testCompararSpockGanaATijera() {
+		// TODO para mis queridos alumnos testCompararTijeraPierdeConPiedra
+		assertEquals(1, spock.comparar(tijera));
+		assertEquals("spock ganó a tijera", spock.getDescripcionResultado().toLowerCase());
+	}
+	
+	@Test
+	void testCompararSpockGanaAPiedra() {
+		// TODO para mis queridos alumnos testCompararTijeraPierdeConPiedra
+		assertEquals(1, spock.comparar(piedra));
+		assertEquals("spock evaporiza la piedra", spock.getDescripcionResultado().toLowerCase());
+	}
+	
+	@Test
+	void testCompararSpockPierdeConPapel() {
+		// TODO para mis queridos alumnos testCompararTijeraPierdeConPiedra
+		assertEquals(-1, spock.comparar(papel));
+		assertEquals("spock perdió con papel", spock.getDescripcionResultado().toLowerCase());
+	}
+	
+	@Test
+	void testCompararSpockPierdeConLagarto() {
+		// TODO para mis queridos alumnos testCompararTijeraPierdeConPiedra
+		assertEquals(-1, spock.comparar(lagarto));
+		assertEquals("spock es devorado por lagarto", spock.getDescripcionResultado().toLowerCase());
+	}
+	
+	@Test
+	void testCompararSpockEmpataConSpock() {
+		// TODO para mis queridos alumnos testCompararTijeraEmpataConTiera
+		assertEquals(0, spock.comparar(spock));
+		assertEquals("spock empata con spock", spock.getDescripcionResultado().toLowerCase());
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

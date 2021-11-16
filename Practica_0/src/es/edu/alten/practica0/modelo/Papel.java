@@ -28,10 +28,18 @@ public class Papel extends PiedraPapelTijeraFactory{
 			resultado = 1;
 			this.descripcionResultado = "Papel ganó a " + piedraPapelTijera.getNombre();
 			break;
+		case SPOCK:
+			resultado = 1;
+			this.descripcionResultado = "Papel desautoriza a " + piedraPapelTijera.getNombre();
+			break;		
 		case TIJERA:
 			resultado = -1;
 			this.descripcionResultado = "Papel perdió con " + piedraPapelTijera.getNombre();
 			break;
+		case LAGARTO:
+			resultado = -1;
+			this.descripcionResultado = "Papel es devorado por " + piedraPapelTijera.getNombre();
+			break;			
 		default:
 			this.descripcionResultado = "Papel empata con " + piedraPapelTijera.getNombre();
 			break;

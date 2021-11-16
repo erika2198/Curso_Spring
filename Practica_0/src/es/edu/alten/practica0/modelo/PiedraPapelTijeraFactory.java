@@ -59,6 +59,8 @@ public abstract class PiedraPapelTijeraFactory {
 		elementos.add(new Piedra());
 		elementos.add(new Papel());
 		elementos.add(new Tijera());
+		elementos.add(new Lagarto());
+		elementos.add(new Spock());
 		
 		//Buscar entre los hijos y encontrar el que corresponda
 		for(PiedraPapelTijeraFactory piedraPapelTijeraFactory : elementos) {

@@ -26,10 +26,19 @@ public class Lagarto extends PiedraPapelTijeraFactory {
 			resultado = 1;
 			this.descripcionResultado = "Lagarto ganó a " + piedraPapelTijera.getNombre();
 			break;
+		case PAPEL:
+			resultado = 1;
+			this.descripcionResultado = "Lagarto devora a " + piedraPapelTijera.getNombre();
+			break;
 		case PIEDRA:
 			resultado = -1;
 			this.descripcionResultado = "Lagarto perdió con " + piedraPapelTijera.getNombre();
 			break;
+		case TIJERA:
+			resultado = -1;
+			this.descripcionResultado = "Lagarto es decapitado por " + piedraPapelTijera.getNombre();
+			break;
+		
 		default:
 			this.descripcionResultado = "Lagarto empata con " + piedraPapelTijera.getNombre();
 			break;

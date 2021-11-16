@@ -27,14 +27,21 @@ public class Piedra extends PiedraPapelTijeraFactory {
 			resultado = 1;
 			this.descripcionResultado = "Piedra ganó a " + piedraPapelTijera.getNombre();
 			break;
+		case LAGARTO:
+			resultado = 1;
+			this.descripcionResultado = "Piedra aplasta a " + piedraPapelTijera.getNombre();
+			break;
 		case PAPEL:
 			resultado = -1;
 			this.descripcionResultado = "Piedra perdió con " + piedraPapelTijera.getNombre();
 			break;
+		case SPOCK:
+			resultado = -1;
+			this.descripcionResultado = "Piedra es evaporizada por " + piedraPapelTijera.getNombre();
+			break;
 		default:
 			this.descripcionResultado = "Piedra empata con " + piedraPapelTijera.getNombre();
 			break;
-
 		}
 		return resultado;
 	}
