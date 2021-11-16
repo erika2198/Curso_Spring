@@ -26,13 +26,14 @@ public class Papel extends PiedraPapelTijeraFactory{
 		switch (piedraPapelTijera.getNumero()) {
 		case PIEDRA:
 			resultado = 1;
-			this.descripcionResultado = "Papel le ganó a " + piedraPapelTijera.getNombre();
+			this.descripcionResultado = "Papel ganó a " + piedraPapelTijera.getNombre();
 			break;
 		case TIJERA:
 			resultado = -1;
-			this.descripcionResultado = "Papel pedió con " + piedraPapelTijera.getNombre();
+			this.descripcionResultado = "Papel perdió con " + piedraPapelTijera.getNombre();
 			break;
 		default:
+			this.descripcionResultado = "Papel empata con " + piedraPapelTijera.getNombre();
 			break;
 
 		}

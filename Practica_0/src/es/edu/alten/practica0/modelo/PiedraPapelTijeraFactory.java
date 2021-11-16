@@ -50,7 +50,7 @@ public abstract class PiedraPapelTijeraFactory {
 	
 	public abstract int comparar(PiedraPapelTijeraFactory piedraPapelTijera); 
 	
-	public static PiedraPapelTijeraFactory getInstance(int pNumero) {
+	public static PiedraPapelTijeraFactory getInstance(int numero) {
 		//El núcleo del factory	
 		//Primero, reconoce a todos sus hijos
 		elementos = new ArrayList<PiedraPapelTijeraFactory>();
@@ -60,7 +60,7 @@ public abstract class PiedraPapelTijeraFactory {
 		
 		//Buscar entre los hijos y encontrar el que corresponda
 		for(PiedraPapelTijeraFactory piedraPapelTijeraFactory : elementos) {
-			if(piedraPapelTijeraFactory.isMe(pNumero));
+			if(piedraPapelTijeraFactory.isMe(numero))
 			return piedraPapelTijeraFactory;
 		}
 		
