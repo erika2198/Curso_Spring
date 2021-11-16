@@ -1,6 +1,11 @@
 package es.edu.alten.practica0.modelo;
 
 public class Papel extends PiedraPapelTijeraFactory{
+	
+	// Constructores
+		public Papel() {
+			this("papel", PAPEL);
+		}
 
 	public Papel(String pNom, int pNum) {
 		//Llama al constructor del padre
@@ -21,11 +26,11 @@ public class Papel extends PiedraPapelTijeraFactory{
 		switch (piedraPapelTijera.getNumero()) {
 		case PIEDRA:
 			resultado = 1;
-			System.out.println("Ganador!!");
+			this.descripcionResultado = "Papel le ganó a " + piedraPapelTijera.getNombre();
 			break;
 		case TIJERA:
 			resultado = -1;
-			System.out.println("Has perdido!");
+			this.descripcionResultado = "Papel pedió con " + piedraPapelTijera.getNombre();
 			break;
 		default:
 			break;

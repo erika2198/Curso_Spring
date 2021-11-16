@@ -1,5 +1,6 @@
 package es.edu.alten.practica0.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class PiedraPapelTijeraFactory {
@@ -49,8 +50,20 @@ public abstract class PiedraPapelTijeraFactory {
 	
 	public abstract int comparar(PiedraPapelTijeraFactory piedraPapelTijera); 
 	
-	public static PiedraPapelTijeraFactory getInstance(int numero) {
-		//El núcleo del factory		
+	public static PiedraPapelTijeraFactory getInstance(int pNumero) {
+		//El núcleo del factory	
+		//Primero, reconoce a todos sus hijos
+		elementos = new ArrayList<PiedraPapelTijeraFactory>();
+		elementos.add(new Piedra());
+		elementos.add(new Papel());
+		elementos.add(new Tijera());
+		
+		//Buscar entre los hijos y encontrar el que corresponda
+		for(PiedraPapelTijeraFactory piedraPapelTijeraFactory : elementos) {
+			if(piedraPapelTijeraFactory.isMe(pNumero));
+			return piedraPapelTijeraFactory;
+		}
+		
 		return null;
 		
 	}

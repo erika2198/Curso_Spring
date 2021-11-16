@@ -1,10 +1,15 @@
 package es.edu.alten.practica0.modelo;
 
 public class Tijera extends PiedraPapelTijeraFactory {
+	
+	// Constructores
+		public Tijera() {
+			this("tijera", TIJERA);
+		}
 
 	public Tijera(String pNom, int pNum) {
 		super("tijera", TIJERA);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
@@ -20,11 +25,11 @@ public class Tijera extends PiedraPapelTijeraFactory {
 		switch (piedraPapelTijera.getNumero()) {
 		case PAPEL:
 			resultado = 1;
-			System.out.println("Ganador!!");
+			this.descripcionResultado = "Tijera le ganó a " + piedraPapelTijera.getNombre();
 			break;
 		case TIJERA:
 			resultado = -1;
-			System.out.println("Has perdido!");
+			this.descripcionResultado = "Tijera pedió con " + piedraPapelTijera.getNombre();
 			break;
 		default:
 			break;

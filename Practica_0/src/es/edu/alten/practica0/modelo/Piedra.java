@@ -23,13 +23,13 @@ public class Piedra extends PiedraPapelTijeraFactory {
 		int resultado = 0;
 
 		switch (piedraPapelTijera.getNumero()) {
-		case PAPEL:
-			resultado = -1;
-			System.out.println("Has perdido!");
-			break;
 		case TIJERA:
 			resultado = 1;
-			System.out.println("Ganador!!");
+			this.descripcionResultado = "Piedra le ganó a " + piedraPapelTijera.getNombre();
+			break;
+		case PAPEL:
+			resultado = -1;
+			this.descripcionResultado = "Piedra perdió con " + piedraPapelTijera.getNombre();
 			break;
 		default:
 			break;
