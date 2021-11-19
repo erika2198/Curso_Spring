@@ -62,6 +62,17 @@ class PiedraPapelTijeraFactoryTest {
 		assertEquals("tijera",
 				PiedraPapelTijeraFactory.getInstance(PiedraPapelTijeraFactory.TIJERA).getNombre().toLowerCase());
 	}
+	@Test
+	void testGetInstanceLagarto() {
+		assertEquals("lagarto",
+				PiedraPapelTijeraFactory.getInstance(PiedraPapelTijeraFactory.LAGARTO).getNombre().toLowerCase());
+	}
+	
+	@Test
+	void testGetInstanceSpock() {
+		assertEquals("spock",
+				PiedraPapelTijeraFactory.getInstance(PiedraPapelTijeraFactory.SPOCK).getNombre().toLowerCase());
+	}
 
 	@Test
 	void testCompararPiedraPierdeConPapel() {
