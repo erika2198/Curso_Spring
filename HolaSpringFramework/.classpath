@@ -66,5 +66,8 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/Users/erika.castro/Documents/Curso_JavaSpring/workspace/Curso_Spring/HolaSpringFramework/src/main/webapp/WEB-INF/lib/Practica_0.jar"/>
+	<classpathentry kind="src" path="/Practica_0"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
