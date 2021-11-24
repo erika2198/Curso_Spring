@@ -69,20 +69,18 @@ public class AlumnoDAO implements DAO {
 	}
 
 	@Override
-	public List<Model> leer(Model pModel) throws ClassNotFoundException, SQLException {
+	public List<Model> leer() throws ClassNotFoundException, SQLException {
 
 		List<Model> lista = new ArrayList<Model>();
 		ConnectionManager.conectar();
 		Connection conn = ConnectionManager.getConnection();
-
-		Alumno alumno = (Alumno) pModel;
 
 		Statement st = conn.createStatement();
 
 		ResultSet rs = st.executeQuery(GET_ALL_QUERY);
 
 		while (rs.next()) {
-
+			Alumno alumno = new Alumno();
 			alumno.setCodigo(rs.getInt("alu_id"));
 			alumno.setNombre(rs.getString("alu_nombre"));
 			alumno.setApellido(rs.getString("alu_apellido"));
