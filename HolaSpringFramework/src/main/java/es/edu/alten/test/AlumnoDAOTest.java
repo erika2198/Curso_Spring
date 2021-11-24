@@ -145,7 +145,7 @@ class AlumnoDAOTest {
 	void testLeer() {
 
 		try {
-			aluDao.leer(aluEliminar);
+			aluDao.leer();
 
 			ConnectionManager.conectar();
 			Connection con = ConnectionManager.getConnection();
