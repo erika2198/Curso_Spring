@@ -30,9 +30,10 @@ public class IndexController {
 	@RequestMapping("/listado")
 	public String goListado(Model model) throws ClassNotFoundException, SQLException {
 
-		List<es.edu.alten.modelo.Model> alumnos= null;
+		
+		List<Alumno> alumnos = new ArrayList<Alumno>();
 		DAO aluDao = new AlumnoDAO();
-		alumnos= aluDao.leer();
+		//alumnos= aluDao.leer(null);
 		
 		model.addAttribute("alumnos", alumnos);
 		model.addAttribute("titulo", "Lista de alumnos");

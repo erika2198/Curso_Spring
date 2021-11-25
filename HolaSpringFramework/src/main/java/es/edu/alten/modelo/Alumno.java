@@ -14,8 +14,9 @@ public class Alumno implements Model, Vaciable{
 	//Constructor
 	
 	public Alumno() {};
+	
 	public Alumno(int pCodigo) {
-		int codigo= pCodigo;
+		codigo= pCodigo;
 	}
 	
 	public Alumno(int codigo, String nombre, String apellido, String estudios, String linkArepositorio) {

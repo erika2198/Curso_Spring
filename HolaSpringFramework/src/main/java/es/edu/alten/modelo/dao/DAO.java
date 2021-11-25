@@ -13,6 +13,6 @@ public interface DAO {
 
 	public void eliminar(Model pModel) throws ClassNotFoundException, SQLException;
 
-	public List<Model> leer() throws ClassNotFoundException, SQLException;
+	public List<Model> leer(Model pModel) throws ClassNotFoundException, SQLException;
 
 }
