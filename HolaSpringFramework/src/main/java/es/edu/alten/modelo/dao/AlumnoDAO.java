@@ -75,8 +75,7 @@ public class AlumnoDAO implements DAO {
 		ConnectionManager.conectar();
 		Connection conn = ConnectionManager.getConnection();
 		StringBuilder sql = new StringBuilder(GET_ALL_QUERY);
-		
-		
+				
 		Alumno alumno = (Alumno) pModel;
 		if(alumno.getCodigo()>0) {
 			sql.append(" where alu_id=?");			
@@ -91,11 +90,13 @@ public class AlumnoDAO implements DAO {
 		ResultSet rs = stm.executeQuery(); 
 
 		while (rs.next()) {
-			alumno.setNombre(rs.getString("alu_nombre"));
-			alumno.setApellido(rs.getString("alu_apellido"));
-			alumno.setEstudios(rs.getString("alu_conocimientos"));
-			alumno.setLinkArepositorio(rs.getString("alu_git"));
-			lista.add(alumno);
+			Alumno alumn = new Alumno();
+			alumn.setCodigo(rs.getInt("alu_id"));
+			alumn.setNombre(rs.getString("alu_nombre"));
+			alumn.setApellido(rs.getString("alu_apellido"));
+			alumn.setEstudios(rs.getString("alu_conocimientos"));
+			alumn.setLinkArepositorio(rs.getString("alu_git"));
+			lista.add(alumn);
 		}
 		return lista;
 	}

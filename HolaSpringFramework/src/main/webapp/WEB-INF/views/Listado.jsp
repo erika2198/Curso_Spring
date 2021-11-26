@@ -22,19 +22,19 @@
 		<thead>
 			<tr>
 				<th scope="col">Codigo</th>
-				<th scope="col">ID</th>
 				<th scope="col">Nombre</th>
 				<th scope="col">Apellido</th>
+				<th scope="col">Conocimientos</th>
 				<th scope="col">Repositorio</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${alumnos}" var="alumno">
 				<tr>
-					<th scope="row">1</th>
 					<td><c:out value="${alumno.getCodigo()}" /></td>
 					<td><c:out value="${alumno.getNombre()}" /></td>
 					<td><c:out value="${alumno.getApellido()}" /></td>
+					<td><c:out value="${alumno.getEstudios()}" /></td>
 					<td><c:out value="${alumno.getLinkArepositorio()}" /></td>
 				</tr>
 			</c:forEach>

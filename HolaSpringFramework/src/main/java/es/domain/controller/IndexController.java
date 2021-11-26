@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import es.edu.alten.modelo.Alumno;
 import es.edu.alten.modelo.dao.AlumnoDAO;
 import es.edu.alten.modelo.dao.DAO;
-import es.edu.alten.practica0.modelo.*;
+import es.edu.alten.practica0.modelo.PiedraPapelTijeraFactory;
 
 @Controller
 public class IndexController {
@@ -30,10 +30,10 @@ public class IndexController {
 	@RequestMapping("/listado")
 	public String goListado(Model model) throws ClassNotFoundException, SQLException {
 
-		
-		List<Alumno> alumnos = new ArrayList<Alumno>();
+		Alumno alumn = new Alumno();
+		List<es.edu.alten.modelo.Model> alumnos = null;	
 		DAO aluDao = new AlumnoDAO();
-		//alumnos= aluDao.leer(null);
+		alumnos = aluDao.leer(alumn);
 		
 		model.addAttribute("alumnos", alumnos);
 		model.addAttribute("titulo", "Lista de alumnos");
