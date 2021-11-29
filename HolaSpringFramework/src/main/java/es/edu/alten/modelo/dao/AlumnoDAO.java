@@ -14,7 +14,7 @@ import es.edu.alten.util.ConnectionManager;
 
 public class AlumnoDAO implements DAO {
 
-	private final String GET_ALL_QUERY ="SELECT alu_id, alu_nombre, alu_apellido, alu_conocimientos, alu_git FROM alumnos";
+	private final String GET_ALL_QUERY = "SELECT alu_id, alu_nombre, alu_apellido, alu_conocimientos, alu_git FROM alumnos";
 	private final String INSERT_QUERY = "INSERT INTO alumnos(alu_nombre, alu_apellido, alu_conocimientos, alu_git) VALUES(?,?,?,?)";
 	private final String DELETE_QUERY = "DELETE FROM alumnos WHERE alu_id=?";
 	private final String UPDATE_QUERY = "UPDATE alumnos SET alu_nombre=?, alu_apellido=? WHERE alu_id=?";
@@ -75,28 +75,28 @@ public class AlumnoDAO implements DAO {
 		ConnectionManager.conectar();
 		Connection conn = ConnectionManager.getConnection();
 		StringBuilder sql = new StringBuilder(GET_ALL_QUERY);
-				
+
 		Alumno alumno = (Alumno) pModel;
-		if(alumno.getCodigo()>0) {
-			sql.append(" where alu_id=?");			
+		if (alumno.getCodigo() > 0) {
+			sql.append(" where alu_id=?");
 		}
-	
+
 		PreparedStatement stm = conn.prepareStatement(sql.toString());
-		
-		if(alumno.getCodigo()>0) {
-			stm.setInt(1, alumno.getCodigo());			
+
+		if (alumno.getCodigo() > 0) {
+			stm.setInt(1, alumno.getCodigo());
 		}
-		
-		ResultSet rs = stm.executeQuery(); 
+
+		ResultSet rs = stm.executeQuery();
 
 		while (rs.next()) {
-			Alumno alumn = new Alumno();
-			alumn.setCodigo(rs.getInt("alu_id"));
-			alumn.setNombre(rs.getString("alu_nombre"));
-			alumn.setApellido(rs.getString("alu_apellido"));
-			alumn.setEstudios(rs.getString("alu_conocimientos"));
-			alumn.setLinkArepositorio(rs.getString("alu_git"));
-			lista.add(alumn);
+			alumno = new Alumno();
+			alumno.setCodigo(rs.getInt("alu_id"));
+			alumno.setNombre(rs.getString("alu_nombre"));
+			alumno.setApellido(rs.getString("alu_apellido"));
+			alumno.setEstudios(rs.getString("alu_conocimientos"));
+			alumno.setLinkArepositorio(rs.getString("alu_git"));
+			lista.add(alumno);
 		}
 		return lista;
 	}
