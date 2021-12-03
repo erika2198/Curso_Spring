@@ -19,6 +19,27 @@
 					"rewriteBatchedStatements": "true",
 					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2"
 				},
+				"auth-model": "native"
+			}
+		},
+		"mysql8-17d78133a71-5e2249bc799672e5": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "demo",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"database": "demo",
+				"url": "jdbc:mysql://localhost:3306/demo",
+				"home": "C:\\Program Files\\MySQL\\MySQL Server 8.0",
+				"type": "dev",
+				"properties": {
+					"connectTimeout": "20000",
+					"rewriteBatchedStatements": "true",
+					"enabledTLSProtocols": "TLSv1,TLSv1.1,TLSv1.2"
+				},
 				"auth-model": "native",
 				"handlers": {}
 			}
