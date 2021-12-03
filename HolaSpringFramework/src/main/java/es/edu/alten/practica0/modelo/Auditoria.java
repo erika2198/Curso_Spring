@@ -31,7 +31,7 @@ public class Auditoria {
 	}
 	public void contarDespuesDeLaJugada() {
 		
-		
+		cantidadJugadas++;
 	}
 		
 

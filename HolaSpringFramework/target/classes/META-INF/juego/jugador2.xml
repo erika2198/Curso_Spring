@@ -5,11 +5,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-<bean id="jugador" class="es.edu.alten.practica0.modelo">
-	<property name = "codigo"  value = "1" />
-    <property name = "nombre"  value = "Erika"/>
-    <property name = "nickname"  value = "eri"/>
-    <property name = "jugadaElegida"  value = "piedra"/>
+<bean id="jug2" class="es.edu.alten.practica0.modelo.Jugador">
+	<property name = "codigo" value = "2"/>
+    <property name = "nombre" value = "Harry"/>
+    <property name = "nickname" value = "style"/>
+    <property name = "jugadaElegida"> <ref bean = "spock"/></property>
 </bean>
+
+<bean id="spock" class="es.edu.alten.practica0.modelo.Spock"></bean>
   
 </beans>
+

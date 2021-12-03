@@ -21,7 +21,7 @@ class JugadaTest {
 	void setUp() throws Exception {
 		
 		Jugador jug1 = new Jugador(1, "Erika", "eri", new Piedra());
-		Jugador jug2 = new Jugador(2, "compu", "pc", new Spock());
+		Jugador jug2 = new Jugador(2, "Harry", "style", new Spock());
 		jugada = new Jugada(1, new Date(), jug1, jug2);
 	}
 

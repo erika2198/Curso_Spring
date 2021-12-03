@@ -51,9 +51,8 @@ public class Jugada {
 	}
 	
 	public String getDescripcionDelResultado() {
-		 
-		
-		return null;
+		 jugador1.getJugadaElegida().comparar(jugador2.getJugadaElegida());
+		 return jugador1.getJugadaElegida().descripcionResultado;
 	}
 
 	@Override

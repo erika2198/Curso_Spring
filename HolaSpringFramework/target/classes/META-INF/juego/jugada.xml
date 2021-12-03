@@ -32,4 +32,19 @@
 	<bean id="dateFormat" class="java.text.SimpleDateFormat">
 		<constructor-arg value="yyyy-MM-dd"/>
 	</bean>
+	
+	<bean id="auditoria" class="es.edu.alten.practica0.modelo.Auditoria">
+	                            
+	
+	</bean>
+	
+	<aop:config>
+	  <aop:aspect ref="auditoria">
+	  	<aop:pointcut id="getDescripcionDelResultado" 
+	  			expression="execution(* *.getDescripcionDelResultado())" />
+	  	<aop:after  pointcut-ref="getDescripcionDelResultado"
+	  		method="contarDespuesDeLaJugada"/>
+	  </aop:aspect>
+	</aop:config>
+	
 </beans>
