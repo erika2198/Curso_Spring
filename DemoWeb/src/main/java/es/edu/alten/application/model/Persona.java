@@ -1,16 +1,14 @@
-package es.edu.alten.model;
-
-import java.io.Serializable;
+package es.edu.alten.application.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Persona implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
-	
+@Table(name="personas")
+public class Persona {
+
 	@Id
 	@Column(name = "per_codigo")
 	private int codigo;
@@ -18,10 +16,11 @@ public class Persona implements Serializable {
 	private String nombre;
 	
 	public Persona() {}
-	public Persona(int codigo, String nombre) {
+	
+	public Persona(int pCod, String pNom) {
 		
-		this.codigo = codigo;
-		this.nombre = nombre;
+		this.codigo = pCod;
+		this.nombre = pNom;
 	}
 	
 	public int getCodigo() {
