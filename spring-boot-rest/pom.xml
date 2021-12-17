@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.baeldung.web</groupId>
+	<artifactId>spring-boot-rest</artifactId>
+	<name>spring-boot-rest</name>
+	<packaging>war</packaging>
+	<description>Spring Boot Rest Module</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.3</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>${junit-jupiter.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<!-- fin de la copia del dependenciy management -->
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
+		<!-- We'll need to comment out the jackson-dataformat-xml dependency if 
+			we want to use XStream: -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>${xstream.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		<!-- Spring HATEOAS -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>
+		<!-- util -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.htmlunit</groupId>
+			<artifactId>htmlunit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>${modelmapper.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+		</dependency>
+		<!-- Thanks for using https://jar-download.com -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<!-- Aca copio el plugin manager -->
+		<pluginManagement>
+			<plugins>
+
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring-boot.version}</version>
+					<configuration>
+						<mainClass>${start-class}</mainClass>
+						<!-- this is necessary as we're not using the Boot parent -->
+					</configuration>
+				</plugin>
+
+				<!-- Este plug in daba un error y al copiar aca funciono, estando dentro 
+					del pluginManagement -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>aspectj-maven-plugin</artifactId>
+					<version>${aspectj-plugin.version}</version>
+					<configuration>
+						<complianceLevel>${java.version}</complianceLevel>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<showWeaveInfo>true</showWeaveInfo>
+						<verbose>true</verbose>
+						<Xlint>ignore</Xlint>
+						<encoding>UTF-8</encoding>
+						<excludes>
+							<exclude>**/pointcutadvice/**</exclude>
+						</excludes>
+					</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>compile</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- Copio todos los profiles -->
+
+	<profiles>
+		<profile>
+			<id>thin-jar</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+						<dependencies>
+							<!-- The following enables the "thin jar" deployment option. -->
+							<dependency>
+								<groupId>org.springframework.boot.experimental</groupId>
+								<artifactId>spring-boot-thin-layout</artifactId>
+								<version>${thin.version}</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<!-- Fin de los profiles -->
+
+	<properties>
+		<rest-assured.version>3.3.0</rest-assured.version>
+		<!-- plugins -->
+		<thin.version>1.0.22.RELEASE</thin.version>
+		<spring-boot.version>2.5.4</spring-boot.version>
+		<aspectjweaver.version>1.9.1</aspectjweaver.version>
+		<!-- this property can be removed once we update Mockito version in the 
+			main pom.xml -->
+		<mockito.version>3.4.0</mockito.version>
+		<aspectj-plugin.version>1.11</aspectj-plugin.version>
+		<start-class>com.baeldung.SpringBootRestApplication</start-class>
+		<guava.version>27.0.1-jre</guava.version>
+		<xstream.version>1.4.11.1</xstream.version>
+		<modelmapper.version>2.3.5</modelmapper.version>
+	</properties>
+
+</project>

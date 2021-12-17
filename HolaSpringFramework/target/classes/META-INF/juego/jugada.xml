@@ -34,8 +34,7 @@
 	</bean>
 	
 	<bean id="auditoria" class="es.edu.alten.practica0.modelo.Auditoria">
-	                            
-	
+	                   
 	</bean>
 	
 	<aop:config>
